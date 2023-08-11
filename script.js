@@ -37,12 +37,15 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   // threshold default is 0, meaning as soon as the first pixel is visible. You can change it 1, meaning only the whole target is visible, then we do the logic.
   // this also means as soon as the first pixel disappear in the top card (when scrolling down), we will make the card disappear.
-  // threshold: 1,
+  threshold: 1,
 
   // rootMargin meaning subtract (for negative value) the container (e.g. the page) top and bottom by 100px each.
   // When you enable this, disable 'threshold: 1', otherwise it will go into infinite loop.
   // We usually have this in position value. E.g. rootMargin: "100px", can mean when we are about 100px from the actual image, start down loading the image.
-  rootMargin: "-100px"
+  // rootMargin: "-100px",
+
+  // you can define a root container, as long as it's scrollable, it will work. But 99% of time you will not need to change the this property, because you usually left it to observe the entire page.
+  // root:
 });
 
 // observer.observe(cards[0]);
