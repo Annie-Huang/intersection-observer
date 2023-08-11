@@ -57,6 +57,10 @@ const lastCardObserver = new IntersectionObserver((entries) => {
 
   if (!lastCard.isIntersecting) return;
   loadNewCards();
+
+  // switch to the new last-child so we can continue to monitor the correct value.
+  lastCardObserver.unobserve(lastCard.target);
+  lastCardObserver.observe(document.querySelector('.card:last-child'));
 }, {});
 
 lastCardObserver.observe(document.querySelector('.card:last-child'));
