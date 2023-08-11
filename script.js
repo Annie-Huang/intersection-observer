@@ -44,6 +44,7 @@ const observer = new IntersectionObserver(
 
     // rootMargin meaning subtract (for negative value) the container (e.g. the page) top and bottom by 100px each.
     // When you enable this, disable 'threshold: 1', otherwise it will go into infinite loop.
+    // This property is defined exactly the same as the margin CSS property in that it can take 1 value to apply margin to all sides or multiple values to give individual values to each side.
     // We usually have this in position value. E.g. rootMargin: "100px", can mean when we are about 100px from the actual image, start down loading the image.
     // rootMargin: "-100px",
 

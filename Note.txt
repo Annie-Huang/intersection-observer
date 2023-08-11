@@ -2,4 +2,39 @@ Learn Intersection Observer In 15 Minutes (https://www.youtube.com/watch?v=2IbRt
 
 https://github.com/Annie-Huang/intersection-observer
 
+https://blog.webdevsimplified.com/2022-01/intersection-observer/
+https://blog.webdevsimplified.com/2022-01/resize-observer/
 -----------------------------------------------------------------------
+
+!!! Notes about the usage is in the script.js file.
+
+Usage:
+Intersection Observer in my opinion is the most useful because of how easy it makes things like infinite scrolling, lazing loading images, and scroll based animations.
+
+-------------
+
+You can also pass an array to threshold which means that the Intersection Observer will fire each time your element passes one of the thresholds passed to it.
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.innerText = `${Math.round(entry.intersectionRatio * 100)}%`;
+    });
+  },
+  { threshold: [0, 0.25, 0.5, 0.75, 1] }
+);
+
+-------------
+
+Stop observing:
+This can be done with the unobserve method or the method which are both methods on the Intersection Observer.
+The unobserve method takes a single element as its only parameter and it stops observing that single element.
+The disconnect method takes no parameters and will stop observing all elements.
+
+new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      lazyLoadImage(entry);
+      observer.unobserve(entry.target);
+    }
+  });
+});
