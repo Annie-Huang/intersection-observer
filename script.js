@@ -31,9 +31,14 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     entry.target.classList.toggle('show', entry.isIntersecting)
   })
+}, {
+  // threshold default is 0, meaning as soon as the first pixel is visible. You can change it 1, meaning only the whole target is visible, then we do the logic.
+  // this also means as soon as the first pixel disappear in the top card (when scrolling down), we will make the card disappear.
+  threshold: 1
 });
 
 // observer.observe(cards[0]);
 
 // You only see if it you move faster, because by default as soon as a single pixel is show on the screen, we will add .show class into the card.
+// That is why we need the threshold option.
 cards.forEach(card => observer.observe(card))
