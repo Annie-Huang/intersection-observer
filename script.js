@@ -48,8 +48,14 @@ const observer = new IntersectionObserver((entries) => {
   // root:
 });
 
-// observer.observe(cards[0]);
+const lastCardObserver = new IntersectionObserver(entries => {
+  const lastCard = entries[0]
+}, {})
 
+lastCardObserver.observe(document.querySelector('.card:last-child'))
+
+
+// observer.observe(cards[0]);
 // You only see if it you move faster, because by default as soon as a single pixel is show on the screen, we will add .show class into the card.
 // That is why we need the threshold option.
 cards.forEach(card => observer.observe(card))
