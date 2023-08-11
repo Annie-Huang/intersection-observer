@@ -30,6 +30,9 @@ const observer = new IntersectionObserver((entries) => {
   console.log(entries);
   entries.forEach(entry => {
     entry.target.classList.toggle('show', entry.isIntersecting)
+
+    // As soon as the target is in the page and we add .show, we stop observing, meaning leave it to the page even if we scroll up again.
+    if(entry.isIntersecting) observer.unobserve(entry.target);
   })
 }, {
   // threshold default is 0, meaning as soon as the first pixel is visible. You can change it 1, meaning only the whole target is visible, then we do the logic.
