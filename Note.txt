@@ -1,6 +1,7 @@
 Learn Intersection Observer In 15 Minutes (https://www.youtube.com/watch?v=2IbRtjez6ag)
 
 https://github.com/Annie-Huang/intersection-observer
+https://github.com/Annie-Huang/resize-observer
 
 https://blog.webdevsimplified.com/2022-01/intersection-observer/
 https://blog.webdevsimplified.com/2022-01/resize-observer/
