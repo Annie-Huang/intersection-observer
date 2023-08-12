@@ -7,7 +7,7 @@ const cards = document.querySelectorAll('.card');
 const cardContainer = document.querySelector('.card-container');
 
 /*
-Each intersectionObserverEntry has the following attributes {
+Each IntersectionObserverEntry has the following attributes {
   boundingClientRect: {     <----- actual shape of the element
     bottom
     height
